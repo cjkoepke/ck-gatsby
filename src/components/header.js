@@ -1,14 +1,14 @@
-import {Link} from "gatsby"
+import { Link } from "gatsby"
+import styled from 'styled-components'
 import PropTypes from "prop-types"
 import React from "react"
 
+const StyledHeader = styled.header`
+	background: var(--color-black);
+`
+
 const Header = ( {siteTitle} ) => (
-	<header
-		style={{
-			background: `rebeccapurple`,
-			marginBottom: `1.45rem`,
-		}}
-	>
+	<StyledHeader>
 		<div
 			style={{
 				margin: `0 auto`,
@@ -29,7 +29,7 @@ const Header = ( {siteTitle} ) => (
 			</h1>
 			<Link to={`/posts`}>Posts</Link>
 		</div>
-	</header>
+	</StyledHeader>
 )
 
 Header.propTypes = {
