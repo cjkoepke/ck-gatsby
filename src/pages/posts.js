@@ -1,5 +1,5 @@
 import React from 'react';
-import {StaticQuery, graphql, useStaticQuery} from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
@@ -8,29 +8,24 @@ export default () => {
 		query GET_POSTS {
 			allWordPress {
 				posts {
-					edges {
-						node {
-							title
-							excerpt
-							slug
-						}
+					nodes {
+						title
+						excerpt
+						slug
 					}
 				}
 			}
 		}
 	` )
 
-	const { allWordPress: { posts } } = data
+	const posts = data.allWordPress.posts.nodes
 	return (
 		<Layout>
 			<SEO title={`Posts`}/>
 			<p>Everything I've ever written about.</p>
-			{posts.edges && posts.edges.map( edge => {
-				const post = edge.node || false
-				if ( post ) {
-					return post.title
-				}
-			})}
+			{posts && posts.map( post => post && (
+				<Link key={post.slug} to={`/posts/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}></Link>
+			))}
 		</Layout>
 	)
 }

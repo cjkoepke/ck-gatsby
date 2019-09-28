@@ -4,8 +4,8 @@ require('dotenv').config({
 
 module.exports = {
 	siteMetadata: {
-		title: `Gatsby WordPress Starter`,
-		description: `A boilerplate for building GatsbyJS websites with WordPress and WPGraphQL as the CMS and API layer.`,
+		title: `Calvin Koepke`,
+		description: `Software Engineer + Entrepreneur`,
 		author: `@cjkoepke`,
 	},
 	plugins: [
@@ -33,8 +33,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
+				name: `Calvin Koepke`,
+				short_name: `CK`,
 				start_url: `/`,
 				background_color: `#663399`,
 				theme_color: `#663399`,
