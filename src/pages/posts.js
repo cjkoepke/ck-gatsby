@@ -12,6 +12,12 @@ export default () => {
 						title
 						excerpt
 						slug
+						blocks {
+							... on WPGraphQLQuery_CoreParagraphBlock {
+								name
+								originalContent
+							}
+						}
 					}
 				}
 			}
