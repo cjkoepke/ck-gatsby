@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const StyledHeader = styled.header`
-	background: var(--color-black);
+	background: ${ ({ theme }) => theme.light.black };
 `
 
 const Header = ( {siteTitle} ) => (

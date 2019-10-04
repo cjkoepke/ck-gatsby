@@ -1,12 +1,20 @@
-import { colors } from '../styles/colors'
-import normalize from '../styles/normalize'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
-const getColorVars = colors => {
-	const keys = Object.keys( colors );
-	return keys.reduce(( string, key ) => {
-		string += `--color-${key}: ${colors[key]};`
-		return string;
-	}, ``);
-}
+export default createGlobalStyle`
+	body {
+		background: ${ ({ theme }) => theme.white };
+		color: ${ ({ theme }) => theme.black };
+		font-family: paralucent-text, sans-serif;
+		font-weight: 400;
+	}
 
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: paralucent, sans-serif;
+		font-weight: 700;
+	}
+`

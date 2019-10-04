@@ -4,25 +4,19 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { colors } from '../styles/colors'
+import styled, { ThemeProvider } from 'styled-components';
+import GlobalStyles from '../styles/global'
 import { useStaticQuery, graphql } from 'gatsby'
-import polyFillIO from '../polyfills/intersection-observer'
+
+// Polyfills
+import '../polyfills/intersection-observer'
 
 import Header from './header'
 
-const getColorVars = colors => {
-	const keys = Object.keys( colors );
-	return keys.reduce(( string, key ) => {
-		string += `--color-${key}: ${colors[key]};`
-		return string;
-	}, ``);
-}
-
-const LayoutWrap = styled.div`
-	${getColorVars( colors )}
+const ToggleTheme = styled.button`
+	
 `
 
 const Layout = ( { children } ) => {
@@ -36,20 +30,44 @@ const Layout = ( { children } ) => {
 		}
 	`)
 
-	useEffect(() => {
-		polyFillIO();
+	const [theme, setTheme] = useState({
+		'light' : {
+			'black': '#0A1538',
+			'blue': '#2457F2',
+			'grey-1': '#DCE0EF',
+			'grey-2': '#F4F6F9',
+			'white': '#FFF'
+		},
+		'dark': {
+			'black': '#fff',
+			'blue': '#2457F2',
+			'grey-1': '#F4F6F9',
+			'grey-2': '#DCE0EF',
+			'white': '#0A1538'
+		}
 	})
 
+	const handleToggleTheme = () => {
+		setTheme(( { light, dark }) => ({
+			light: dark,
+			dark: light
+		}))
+	}
+
 	return (
-		<LayoutWrap>
-			<Header siteTitle={data.site.siteMetadata.title}/>
-			<main>{children}</main>
+		<ThemeProvider theme={theme}>
+			<GlobalStyles />
+			<ToggleTheme onClick={handleToggleTheme}>Toggle Theme</ToggleTheme>
+			<Header siteTitle={data.site.siteMetadata.title} />
+			<main>
+				{children}
+			</main>
 			<footer>
 				© {new Date().getFullYear()}, Built with
 				{` `}
 				<a href="https://www.gatsbyjs.org">Gatsby</a>
 			</footer>
-		</LayoutWrap>
+		</ThemeProvider>
 	)
 }
 
