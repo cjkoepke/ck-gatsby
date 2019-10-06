@@ -7,19 +7,23 @@
 import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../styles/global'
+import GlobalStyles from '../../styles/global'
 import { useStaticQuery, graphql } from 'gatsby'
 
 // Polyfills
-import '../polyfills/intersection-observer'
+import '../../polyfills/intersection-observer'
 
-import Header from './header'
+// Components
+import colors from '../../helpers/colors'
+import Section from '../Section'
+import Header from '../Header'
+
 
 const ToggleTheme = styled.button`
 	
 `
 
-const Layout = ( { children } ) => {
+const Index = ( { children } ) => {
 	const data = useStaticQuery( graphql`
 		query SiteTitleQuery {
 			site {
@@ -30,37 +34,21 @@ const Layout = ( { children } ) => {
 		}
 	`)
 
-	const [theme, setTheme] = useState({
-		'light' : {
-			'black': '#0A1538',
-			'blue': '#2457F2',
-			'grey-1': '#DCE0EF',
-			'grey-2': '#F4F6F9',
-			'white': '#FFF'
-		},
-		'dark': {
-			'black': '#fff',
-			'blue': '#2457F2',
-			'grey-1': '#F4F6F9',
-			'grey-2': '#DCE0EF',
-			'white': '#0A1538'
-		}
-	})
+	const [mode, setMode] = useState('light')
 
-	const handleToggleTheme = () => {
-		setTheme(( { light, dark }) => ({
-			light: dark,
-			dark: light
-		}))
+	const handleDarkMode = () => {
+		setMode(prev => 'light' === prev ? 'dark' : 'light')
 	}
 
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={{ colors, mode }}>
 			<GlobalStyles />
-			<ToggleTheme onClick={handleToggleTheme}>Toggle Theme</ToggleTheme>
+			<ToggleTheme onClick={handleDarkMode}>Dark Mode</ToggleTheme>
 			<Header siteTitle={data.site.siteMetadata.title} />
 			<main>
-				{children}
+				<Section>
+					{children}
+				</Section>
 			</main>
 			<footer>
 				© {new Date().getFullYear()}, Built with
@@ -71,8 +59,8 @@ const Layout = ( { children } ) => {
 	)
 }
 
-Layout.propTypes = {
+Index.propTypes = {
 	children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default Index

@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout';
+import Index from '../components/Layouts';
 import SEO from '../components/seo';
 
 export default ( { data: { allWordPress: { postBy: data } } } ) => {
 	return (
-		<Layout>
+		<Index>
 			<SEO title={data.yoast.title} description={data.yoast.desc}/>
 			<article>
 				<h2 dangerouslySetInnerHTML={{ __html: data.title }}></h2>
@@ -13,7 +13,7 @@ export default ( { data: { allWordPress: { postBy: data } } } ) => {
 
 				</div>
 			</article>
-		</Layout>
+		</Index>
 	)
 }
 

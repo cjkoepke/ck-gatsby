@@ -1,9 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
+import { getColor } from '../helpers'
 
 export default createGlobalStyle`
 	body {
-		background: ${ ({ theme }) => theme.white };
-		color: ${ ({ theme }) => theme.black };
+		background: ${ ({ theme }) => getColor(theme, 'grey_1') };
+		color: ${ ({ theme }) => getColor(theme, 'black') };
 		font-family: paralucent-text, sans-serif;
 		font-weight: 400;
 	}
