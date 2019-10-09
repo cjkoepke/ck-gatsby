@@ -1,9 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
 import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components';
@@ -15,12 +9,12 @@ import '../../polyfills/intersection-observer'
 
 // Components
 import colors from '../../helpers/colors'
-import Section from '../Section'
 import Header from '../Header'
 
-
 const ToggleTheme = styled.button`
-	
+	position: fixed;
+	right: 0;
+	top: 0;
 `
 
 const Index = ( { children } ) => {
@@ -46,9 +40,7 @@ const Index = ( { children } ) => {
 			<ToggleTheme onClick={handleDarkMode}>Dark Mode</ToggleTheme>
 			<Header siteTitle={data.site.siteMetadata.title} />
 			<main>
-				<Section>
-					{children}
-				</Section>
+				{children}
 			</main>
 			<footer>
 				© {new Date().getFullYear()}, Built with

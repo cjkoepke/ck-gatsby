@@ -1,16 +1,18 @@
 export default {
 	'light' : {
-		'black': '#0A1538',
-		'blue': '#2457F2',
-		'grey_1': '#DCE0EF',
-		'grey_2': '#F4F6F9',
-		'white': '#FFF'
+		'back': '#EDF1F7',
+		'middle': '#F7F9FC',
+		'top': '#FFF',
+		'text': '#212121',
+		'heading': '#101010',
+		'primary': '#2457F2',
 	},
 	'dark': {
-		'black': '#fff',
-		'blue': '#2457F2',
-		'grey_1': '#F4F6F9',
-		'grey_2': '#DCE0EF',
-		'white': '#0A1538'
+		'back': '#151A30',
+		'middle': '#1A2138',
+		'top': '#222B44',
+		'text': '#ccd5f0',
+		'heading': '#fff',
+		'primary': '#2457F2',
 	}
 }

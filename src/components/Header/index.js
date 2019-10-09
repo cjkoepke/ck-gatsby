@@ -5,18 +5,18 @@ import PropTypes from 'prop-types'
 import { getColor } from '../../helpers'
 
 const StyledHeader = styled.header`
-	background: ${ ({ theme }) => getColor(theme, 'grey_1') };
+	background: ${ ({ theme }) => getColor(theme, 'back') };
 	margin: 0 auto;
 	maxWidth: 960;
 	padding: 1.45rem 1.0875rem;
 	
 	a {
-		color: ${ ({ theme }) => getColor(theme, 'black')};
+		color: ${ ({ theme }) => getColor(theme, 'primary')};
 		text-decoration: none;
 	}
 `
 
-const Index = ( {siteTitle} ) => (
+const Index = ({ siteTitle }) => (
 	<StyledHeader>
 		<h1><Link to="/">{siteTitle}</Link></h1>
 		<Link to={`/posts`}>Posts</Link>
