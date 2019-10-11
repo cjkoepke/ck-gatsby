@@ -1,0 +1,11 @@
+@import 'breakpoints';
+@each $bp, $size in $breakpoints {
+	.container {
+		@media only screen and (min-width: $size) {
+			margin: 0 auto;
+			padding: 0 20px;
+			max-width: #{$size};
+			width: 100%;
+		}
+	}
+}

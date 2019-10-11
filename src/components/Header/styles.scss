@@ -1,0 +1,22 @@
+.header {
+	background: var(--color-back);
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	padding: 1.45rem 1.0875rem;
+
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+	}
+
+	.site-title {
+		font-size: 24px;
+		margin-right: 20px;
+		letter-spacing: .125em;
+
+		a::before {
+			display: none;
+		}
+	}
+}

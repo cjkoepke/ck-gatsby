@@ -1,4 +1,4 @@
-exports.createPages = async ({ actions, graphql, reporter }) => {
+exports.createPages = async ({ actions: { createPage, createNode }, createNodeId, createContentDigest, graphql, reporter }) => {
 	const { data, ...results } = await graphql(`
 		query {
 			allWordPress {
@@ -18,10 +18,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	}
 
 	data.allWordPress.posts.nodes.forEach( post => {
-		actions.createPage({
+		createPage({
 			path: `/posts/${post.slug}`,
-			component: require.resolve('./src/templates/post.js'),
-			context: { id: post.postId }
+			component: require.resolve('./src/templates/Post'),
+			context: {
+				id: post.postId
+			}
 		})
 	});
 }

@@ -1,0 +1,29 @@
+.post-title {
+	font-size: var(--font-size-3);
+	margin: 0 auto;
+	max-width: 1600px;
+}
+
+.post-wrap {
+	display: grid;
+	grid-template-columns: 500px 1fr;
+	grid-gap: 40px;
+}
+
+.post-body {
+	font-size: var(--font-size-lead);
+	max-width: 1200px;
+}
+
+.categories {
+	font-weight: 300;
+	text-transform: uppercase;
+
+	.wf-active & {
+		font-family: urbana, sans-serif;
+	}
+
+	a {
+		font-weight: 300;
+	}
+}

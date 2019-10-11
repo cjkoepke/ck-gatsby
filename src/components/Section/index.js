@@ -1,23 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { css, ThemeConsumer } from 'styled-components'
-import { getColor } from '../../helpers'
-import { fadeInUp } from '../Animations'
+import './styles.scss'
 
 const Section = ({ children, className, ...rest }) => (
-	<ThemeConsumer>
-		{state => (
-			<section {...rest} className={`${state.mode} ${className}`}>
-				{children}
-			</section>
-		)}
-	</ThemeConsumer>
+	<section {...rest} className={`section ${ className || '' }`}>
+		{children}
+	</section>
 )
 
-export default styled(Section)`
-	${ ({ theme }) => css`
-		animation: ${fadeInUp};
-		background: ${ getColor(theme, 'middle') };
-		padding: 40px;
-	` }
-`
+export default Section

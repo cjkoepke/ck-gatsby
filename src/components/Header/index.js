@@ -1,34 +1,38 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getColor } from '../../helpers'
+import Container from '../Container'
+import './styles.scss'
 
-const StyledHeader = styled.header`
-	background: ${ ({ theme }) => getColor(theme, 'back') };
-	margin: 0 auto;
-	maxWidth: 960;
-	padding: 1.45rem 1.0875rem;
-	
-	a {
-		color: ${ ({ theme }) => getColor(theme, 'primary')};
-		text-decoration: none;
-	}
-`
+const Header = ( { siteTitle }) => {
+	const toggleTheme = useRef(null)
 
-const Index = ({ siteTitle }) => (
-	<StyledHeader>
-		<h1><Link to="/">{siteTitle}</Link></h1>
-		<Link to={`/posts`}>Posts</Link>
-	</StyledHeader>
-)
+	useEffect(() => {
+		toggleTheme.current.addEventListener('click', e => {
+			e.preventDefault();
+			document.querySelector('html').classList.toggle( 'dark-theme' )
+		})
+	})
 
-Index.propTypes = {
+	const Tag = window.location.pathname === '/' ? 'h1' : 'p'
+
+	return (
+		<header className={`header`}>
+			<Container>
+				<Tag className={`site-title`}><Link to="/">{siteTitle}</Link></Tag>
+				<Link to={`/posts`}>Posts</Link>
+				<button ref={toggleTheme}>Toggle Theme</button>
+			</Container>
+		</header>
+	)
+}
+
+Header.propTypes = {
 	siteTitle: PropTypes.string,
 }
 
-Index.defaultProps = {
+Header.defaultProps = {
 	siteTitle: ``,
 }
 
-export default Index
+export default Header

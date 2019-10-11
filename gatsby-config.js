@@ -10,6 +10,16 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
+		`gatsby-transformer-sharp`,
+		`gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-plugin-sass`,
+			options: {
+				includePaths: [
+					'src/styles/scss'
+				]
+			}
+		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -17,8 +27,6 @@ module.exports = {
 				path: `${__dirname}/src/images`,
 			},
 		},
-		`gatsby-transformer-sharp`,
-		`gatsby-plugin-sharp`,
 		{
 			resolve: `gatsby-source-graphql`,
 			options: {

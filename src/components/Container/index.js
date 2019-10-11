@@ -1,21 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
-import { breakPoints as bp } from '../../styles/variables'
+import './styles.scss'
 
-const StyledContainer = styled.div`
-	${ Object.keys( bp ).map( breakpoint => `
-		@media only screen and (min-width: ${ bp[breakpoint] }) {
-			margin: 0 auto;
-			max-width: ${ parseInt( bp[breakpoint] ) - 40 }px;
-			width: 100%;
-		}
-	`) }
-`
-
-const Container = ({ children, ...rest }) => (
-	<StyledContainer {...rest}>
+const Container = ({ children, className, ...rest }) => (
+	<div className={`container ${ className || '' }`} {...rest}>
 		{children}
-	</StyledContainer>
+	</div>
 )
 
 export default Container
