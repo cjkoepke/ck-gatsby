@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Container from '../Container'
 import './styles.scss'
 
-const Header = ( { siteTitle }) => {
+const Header = ( { siteTitle, homePage } ) => {
 	const toggleTheme = useRef(null)
 
 	useEffect(() => {
@@ -14,7 +14,7 @@ const Header = ( { siteTitle }) => {
 		})
 	})
 
-	const Tag = window.location.pathname === '/' ? 'h1' : 'p'
+	const Tag = homePage ? 'h1' : 'p'
 
 	return (
 		<header className={`header`}>

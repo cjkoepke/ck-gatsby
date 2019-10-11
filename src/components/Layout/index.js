@@ -9,7 +9,7 @@ import '../../polyfills/intersection-observer'
 import './styles.scss'
 import Header from '../Header'
 
-const Layout = ( { children } ) => {
+const Layout = ( { children, location } ) => {
 	const data = useStaticQuery( graphql`
 		query SiteTitleQuery {
 			site {
@@ -22,8 +22,8 @@ const Layout = ( { children } ) => {
 
 	return (
 		<Fragment>
-			<Header siteTitle={data.site.siteMetadata.title} />
-			<main>
+			<Header homePage={location.pathname === '/'} siteTitle={data.site.siteMetadata.title} />
+			<main className={`main`}>
 				{children}
 			</main>
 			<footer>

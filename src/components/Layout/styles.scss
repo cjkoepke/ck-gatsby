@@ -135,3 +135,16 @@ hr {
 	height: 4px;
 	margin: 20px 0;
 }
+
+.main {
+	animation: fadeIn #{$speed} #{$timing};
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

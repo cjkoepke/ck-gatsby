@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
-import Layout from '../components/Layout'
+import Animation from '../components/Animation'
 import Container from '../components/Container'
+import Section from '../components/Section'
 import SEO from '../components/seo'
 
 export default () => {
@@ -27,14 +28,18 @@ export default () => {
 
 	const posts = data.allWordPress.posts.nodes
 	return (
-		<Layout>
+		<Fragment>
 			<SEO title={`Posts`}/>
-			<Container>
-				<p>Everything I've ever written about.</p>
-				{posts && posts.map( post => post && (
-					<Link key={post.slug} to={`/posts/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}></Link>
-				))}
-			</Container>
-		</Layout>
+			<Section>
+				<Container>
+					<p>Everything I've ever written about.</p>
+					{posts && posts.map((post, index) => (
+						<Animation key={`post-link-${index}`}>
+							<Link key={post.slug} to={`/posts/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}></Link>
+						</Animation>
+					))}
+				</Container>
+			</Section>
+		</Fragment>
 	)
 }

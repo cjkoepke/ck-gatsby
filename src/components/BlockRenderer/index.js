@@ -1,5 +1,6 @@
 import React from 'react'
 import Paragraph from './blocks/paragraph'
+import Animation from '../Animation'
 
 const blockMap = {
 	'core/paragraph': Paragraph

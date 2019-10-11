@@ -3,5 +3,4 @@
 .section {
 	background: var(--color-middle);
 	padding: 4% 10%;
-	transition: background-color #{$speed} #{$timing}, color #{$speed} #{$timing};
 }
