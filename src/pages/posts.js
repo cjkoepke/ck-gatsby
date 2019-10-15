@@ -34,9 +34,7 @@ export default () => {
 				<Container>
 					<p>Everything I've ever written about.</p>
 					{posts && posts.map((post, index) => (
-						<Animation key={`post-link-${index}`}>
-							<Link key={post.slug} to={`/posts/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}></Link>
-						</Animation>
+						<Link key={post.slug} to={`/posts/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}></Link>
 					))}
 				</Container>
 			</Section>

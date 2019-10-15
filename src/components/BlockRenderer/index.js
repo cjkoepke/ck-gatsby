@@ -1,13 +1,15 @@
 import React from 'react'
 import Paragraph from './blocks/paragraph'
-import Animation from '../Animation'
+import List from './blocks/list'
+import Animation from "../Animation";
 
 const blockMap = {
-	'core/paragraph': Paragraph
+	'core/paragraph': Paragraph,
+	'core/list': List
 }
 
 const BlockRenderer = ({ block }) => {
-	if ( blockMap[block.name] ) {
+	if ( blockMap[block.name] && block.isValid ) {
 		const Block = blockMap[block.name]
 		return <Block {...block}/>
 	}

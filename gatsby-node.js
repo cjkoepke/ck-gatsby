@@ -1,5 +1,5 @@
 exports.createPages = async ({ actions: { createPage, createNode }, createNodeId, createContentDigest, graphql, reporter }) => {
-	const { data, ...results } = await graphql(`
+	const posts = await graphql(`
 		query {
 			allWordPress {
 				posts {
@@ -12,12 +12,12 @@ exports.createPages = async ({ actions: { createPage, createNode }, createNodeId
 		}
 	`)
 
-	if ( results.errors ) {
-		reporter.panic( 'Error loading posts.', results.errors );
-		return;
+	if ( posts.errors ) {
+		reporter.panic( 'Error loading posts.', posts.errors )
+		return
 	}
 
-	data.allWordPress.posts.nodes.forEach( post => {
+	posts.data.allWordPress.posts.nodes.forEach( post => {
 		createPage({
 			path: `/posts/${post.slug}`,
 			component: require.resolve('./src/templates/Post'),
@@ -25,5 +25,40 @@ exports.createPages = async ({ actions: { createPage, createNode }, createNodeId
 				id: post.postId
 			}
 		})
-	});
+	})
+
+	const categories = await graphql(`
+		query {
+			allWordPress {
+				categories {
+					nodes {
+						categoryId
+						name
+						slug
+						posts {
+							nodes {
+								title
+								excerpt
+								slug
+							}
+						}
+					}
+				}
+			}
+		}
+	`)
+
+	if ( categories.errors ) {
+		reporter.panic( 'Error loading categories.', categories.errors )
+	}
+
+	categories.data.allWordPress.categories.nodes.forEach( cat => {
+		createPage({
+			path: `/category/${cat.slug}`,
+			component: require.resolve('./src/templates/Category'),
+			context: {
+				posts: cat.nodes
+			}
+		})
+	})
 }

@@ -1,6 +1,10 @@
 @import 'breakpoints';
+@import 'transitions';
+
 @each $bp, $size in $breakpoints {
 	.container {
+		transition: background-color #{$speed} #{$timing};
+
 		@media only screen and (min-width: $size) {
 			margin: 0 auto;
 			padding: 0 20px;

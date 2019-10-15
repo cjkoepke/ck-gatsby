@@ -5,8 +5,8 @@ import SEO from '../../components/seo'
 import Section from '../../components/Section'
 import Container from '../../components/Container'
 import BlockRenderer from '../../components/BlockRenderer'
-import './styles.scss'
 import Animation from '../../components/Animation'
+import './styles.scss'
 
 export default ( { data: { allWordPress: { postBy: data } } } ) => {
 	const title = parse( data.title )
@@ -17,14 +17,13 @@ export default ( { data: { allWordPress: { postBy: data } } } ) => {
 			<Section>
 				<article>
 					<Container>
+						<h1 className={`jumbo post-title`}>{title}</h1>
 						<div className={`post-wrap`}>
 							<div className={`post-meta`}>
-								<h1 className={`post-title`}>{title}</h1>
-								<hr/>
 								<h4 className={`subtitle`}>Categories</h4>
 								<ul className={`categories`}>
 									{data.categories && data.categories.nodes && data.categories.nodes.map(cat => (
-										<li><Link to={`/category/${cat.slug}`}>{cat.name}</Link></li>
+										<li key={cat.name}><Link to={`/category/${cat.slug}`}>{cat.name}</Link></li>
 									))}
 								</ul>
 							</div>
@@ -56,6 +55,7 @@ export const query = graphql`
 				}
 				blocks {
 					...Paragraph
+					...List
 				}
 				yoast {
 					desc
