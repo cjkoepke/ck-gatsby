@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Container from '../Container'
 import ThemeSwitcher from '../ThemeSwitcher'
 import './global.scss'
+import logo from '../../images/logo-type.svg'
 
 const SiteTitle = ({ path, children, ...rest }) =>
 	'/' === path
@@ -18,9 +19,22 @@ const Layout = ( { children, location } ) => {
 					title
 				}
 			}
+			allWordPress {
+				menus(where: {location: HEADER}) {
+					nodes {
+						menuId
+						menuItems {
+							nodes {
+								label
+								url
+								target
+							}
+						}
+					}
+				}
+			}
 		}
 	`)
-
 
 	useEffect(() => {
 		let polyFillLoaded = false
@@ -32,14 +46,40 @@ const Layout = ( { children, location } ) => {
 		}
 	})
 
+	const menu = data.allWordPress.menus.nodes
+
 	return (
 		<Fragment>
 			<header className={`header`}>
 				<Container>
 					<SiteTitle path={location.pathname} className={`site-title`}>
-						<Link to="/">{data.site.siteMetadata.title}</Link>
+						<Link to="/">
+							<img className={`site-logo`} alt={data.site.siteMetadata.title} src={logo}/>
+							<span className={`screen-reader-text`}>
+								{data.site.siteMetadata.title}
+							</span>
+						</Link>
 					</SiteTitle>
-					<Link to={`/posts`}>Posts</Link>
+					{menu && menu.map(node => (
+						<nav key={node.menuId} className={`menu-header`}>
+							<ul>
+								{node.menuItems.nodes && node.menuItems.nodes.map(item => (
+									<li key={item.label}>
+										{null !== item.target
+											? (
+												<a href={item.url} target={item.target}>
+													{item.label}
+												</a>
+											) : (
+												<Link to={item.url}>
+													{item.label}
+												</Link>
+											)}
+									</li>
+								))}
+							</ul>
+						</nav>
+					))}
 					<ThemeSwitcher/>
 				</Container>
 			</header>

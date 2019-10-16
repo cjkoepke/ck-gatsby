@@ -9,8 +9,6 @@ import Animation from '../../components/Animation'
 import './styles.scss'
 
 export default ( data ) => {
-	console.log(data)
-	return null
 	const title = parse( data.title )
 	return (
 		<Fragment>

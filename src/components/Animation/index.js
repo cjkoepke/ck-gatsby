@@ -1,14 +1,10 @@
-import React from 'react'
-import { CSSTransition } from 'react-transition-group'
-import { useInView } from 'react-intersection-observer'
+import React, { useRef, useEffect } from 'react'
+import './styles.scss'
 
-const Animation = ({ children, ...rest }) => {
-	const [ref, inView] = useInView()
+const Animation = ({ children, type = 'fadeInUp', className, style, ...rest }) => {
 	return (
-		<div ref={ref} {...rest}>
-			<CSSTransition timeout={465} in={inView} classNames={`fadeInUp`}>
-				{children}
-			</CSSTransition>
+		<div className={`${type} ${className}`} {...rest}>
+			{children}
 		</div>
 	)
 }

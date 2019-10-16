@@ -17,8 +17,10 @@ export default ( { data: { allWordPress: { postBy: data } } } ) => {
 			<Section>
 				<article>
 					<Container>
-						<h1 className={`jumbo post-title`}>{title}</h1>
-						<div className={`post-wrap`}>
+						<Animation type={`fadeIn`}>
+							<h1 className={`jumbo post-title`}>{title}</h1>
+						</Animation>
+						<Animation className={`post-wrap`}>
 							<div className={`post-meta`}>
 								<h4 className={`subtitle`}>Categories</h4>
 								<ul className={`categories`}>
@@ -27,14 +29,12 @@ export default ( { data: { allWordPress: { postBy: data } } } ) => {
 									))}
 								</ul>
 							</div>
-							<Animation>
-								<div className={`post-body`}>
-									{data.blocks && data.blocks.map((block, index) => (
-										<BlockRenderer key={`${block.name}-${index}`} block={block}/>
-									))}
-								</div>
-							</Animation>
-						</div>
+							<div className={`post-body`}>
+								{data.blocks && data.blocks.map((block, index) => (
+									<BlockRenderer key={`${block.name}-${index}`} block={block}/>
+								))}
+							</div>
+						</Animation>
 					</Container>
 				</article>
 			</Section>

@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"author": "Kyle Mathews <mathews.kyle@gmail.com>",
 	"dependencies": {
-		"css-modules": "^0.3.0",
 		"gatsby": "^2.15.11",
 		"gatsby-plugin-layout": "^1.1.11",
 		"gatsby-plugin-sass": "^2.1.18",

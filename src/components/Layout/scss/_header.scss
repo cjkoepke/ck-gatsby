@@ -1,7 +1,5 @@
 .header {
 	background: var(--color-back);
-	display: flex;
-	align-items: center;
 	margin: 0 auto;
 	padding: 1.45rem 1.0875rem;
 
@@ -11,15 +9,22 @@
 	}
 
 	.site-title {
-		font-family: novecento-sans-wide, sans-serif;
-		font-size: 24px;
-		margin: 0 20px 0 0;
-		line-height: 1.2;
-		letter-spacing: .125em;
-		text-transform: uppercase;
+		display: inline-block;
+		line-height: 1;
+		margin: 0;
 
 		a::before {
 			display: none;
 		}
+	}
+
+
+	.site-logo {
+		max-width: 200px;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
 	}
 }

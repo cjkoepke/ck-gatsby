@@ -1,8 +1,9 @@
 import React from 'react'
-import { section } from './styles.module.scss'
+import Animation from '../../components/Animation'
+import './styles.scss'
 
 const Section = ({ children, className, ...rest }) => (
-	<section {...rest} className={`${section} ${ className || '' }`}>
+	<section className={`section ${ className || '' }`} {...rest}>
 		{children}
 	</section>
 )
