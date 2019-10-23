@@ -1,48 +1,12 @@
 @import 'mixins';
 @import 'transitions';
 
-:root {
-	--color-back: #eeeeee;
-	--color-middle: #f5f5f5;
-	--color-top: #fff;
-	--color-text: #151A30;
-	--color-heading: #101010;
-	--color-primary: #2457F2;
-	--color-invert: #101010;
-
-	&.dark-theme {
-		--color-back: #151A30;
-		--color-middle: #1A2138;
-		--color-top: #222B44;
-		--color-text: #ccd5f0;
-		--color-heading: #ffffff;
-		--color-primary: #2457F2;
-		--color-invert: #ffffff;
-	}
-
-	--font-size-1: 2.488rem;
-	--font-size-2: 2.074rem;
-	--font-size-3: 1.728rem;
-	--font-size-4: 1.44rem;
-	--font-size-5: 1.2rem;
-	--font-size-6: .8rem;
-	--font-size-lead: 1.2rem;
-
-	--font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	--font-family-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
-	&.wf-active {
-		--font-family-body: proxima-nova, sans-serif;
-		--font-family-heading: freight-sans-condensed-pro, sans-serif;
-	}
-}
-
 html {
 	font-size: calc(8px + 0.75vw);
 }
 
 body {
-	background: var(--color-back);
+	background: var(--color-middle);
 	color: var(--color-text);
 	font-family: var(--font-family-body);
 	font-weight: 300;
@@ -57,6 +21,11 @@ strong {
 
 p {
 	margin: 0 0 calc(16px + 0.75vw);
+	-webkit-font-smoothing: antialiased;
+}
+
+.lead {
+	font-size: var(--font-size-lead);
 }
 
 h1,
@@ -74,7 +43,7 @@ h6 {
 
 	&.jumbo {
 		font-size: 4rem;
-		line-height: .8em;
+		line-height: 1em;
 	}
 }
 
@@ -110,7 +79,7 @@ h6 {
 }
 
 a {
-	color: var(--color-primary);
+	color: var(--color-link);
 	font-weight: 700;
 	position: relative;
 	text-decoration: underline;
@@ -165,4 +134,21 @@ hr {
 	position: absolute;
 	width: 1px;
 	word-wrap: normal !important;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 16px 16px;
+}
+
+.back {
+	background-color: var(--color-back);
+}
+
+.middle {
+	background-color: var(--color-middle);
+}
+
+.top {
+	background-color: var(--color-top);
 }

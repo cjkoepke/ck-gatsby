@@ -19,8 +19,8 @@ exports.createPages = async ({ actions: { createPage, createNode }, createNodeId
 
 	posts.data.allWordPress.posts.nodes.forEach( post => {
 		createPage({
-			path: `/posts/${post.slug}`,
-			component: require.resolve('./src/templates/Post'),
+			path: `/article/${post.slug}`,
+			component: require.resolve('./src/templates/Article'),
 			context: {
 				id: post.postId
 			}

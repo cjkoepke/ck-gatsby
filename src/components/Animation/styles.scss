@@ -18,7 +18,7 @@
 }
 
 .fadeIn {
-	animation: fadeIn #{$speed} #{$timing};
+	animation: fadeIn 1.75s #{$timing};
 	will-change: opacity;
 }
 
@@ -32,3 +32,19 @@
 	}
 }
 
+.fadeInLeft {
+	animation: fadeInLeft #{$speed} #{$timing};
+	will-change: opacity, transform;
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

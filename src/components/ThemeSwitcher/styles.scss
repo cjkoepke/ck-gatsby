@@ -4,10 +4,10 @@
 	background: var(--color-top);
 	border: 2px solid var(--color-back);
 	box-shadow: #{$boxShadow};
-	border-radius: 4px;
+	border-radius: 0 0 10px 10px;
 	padding: 10px;
 	position: fixed;
 	top: 0;
 	right: 0;
-	margin: 40px;
+	margin: 0 40px 40px;
 }

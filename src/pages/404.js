@@ -1,14 +1,18 @@
-import React from "react"
-
-import Layout from "../components/Layout"
-import SEO from "../components/seo"
+import React, { Fragment } from 'react'
+import { Link } from 'gatsby'
+import SEO from '../components/seo'
+import Section from '../components/Section'
+import Hero from '../components/Hero'
 
 const NotFoundPage = () => (
-  <Layout>
+  <Fragment>
     <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+    <Section>
+	    <Hero title={`Danget, I actuall broke something.`}>
+		    <p>...or you did. Doesn't matter, though! <Link to={`/`}>Just start over</Link>.</p>
+	    </Hero>
+    </Section>
+  </Fragment>
 )
 
 export default NotFoundPage

@@ -14,8 +14,8 @@ const ThemeSwitcher = () => {
 			Cookies.set( 'theme', 'light' )
 		}
 
-		if ( 'dark' === currentTheme ) {
-			html.classList.add( 'dark-theme' )
+		if ( 'light' === currentTheme ) {
+			html.classList.add( 'light-theme' )
 		}
 
 		toggleTheme.current.addEventListener('click', e => {
@@ -23,10 +23,10 @@ const ThemeSwitcher = () => {
 			const theme = e.target.getAttribute( 'data-theme' )
 			Cookies.set( 'theme', theme );
 
-			if ( 'dark' === theme ) {
-				html.classList.add( 'dark-theme' )
+			if ( 'light' === theme ) {
+				html.classList.add( 'light-theme' )
 			} else {
-				html.classList.remove( 'dark-theme' )
+				html.classList.remove( 'light-theme' )
 			}
 		})
 

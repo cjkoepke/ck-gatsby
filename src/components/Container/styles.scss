@@ -5,8 +5,7 @@
 	.container {
 		@media only screen and (min-width: $size) {
 			margin: 0 auto;
-			padding: 0 20px;
-			max-width: #{$size};
+			max-width: calc(#{$size} - 40px);
 			width: 100%;
 		}
 	}
