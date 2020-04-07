@@ -1,0 +1,14 @@
+.navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  & li {
+    margin-top: 20px;
+  }
+
+  & a {
+    font-weight: 300;
+    text-decoration: none;
+  }
+}
