@@ -28,7 +28,7 @@ module.exports = {
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: `https://gatsby.dev/graphql`,
+        url: `https://calvinkoepke.com/graphql`,
       },
     },
     // {
