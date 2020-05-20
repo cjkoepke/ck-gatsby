@@ -1,9 +1,23 @@
 import React from "react"
 import Image from "gatsby-image"
+import './styles.css'
 
 export default ({
   alt,
+  align,
+  sizeSlug,
+  className,
   localFile: {
-    childImageSharp: { fluid },
+    childImageSharp,
   },
-}) => <Image fluid={fluid} alt={alt} />
+}) => {
+  if ( 'full' === sizeSlug ) {
+    return <Image fluid={childImageSharp?.fluid} alt={alt} className={`${className ? className : ''} align-${align}`} />
+  }
+
+  if ( childImageSharp[sizeSlug] ) {
+    return <Image fixed={childImageSharp[sizeSlug]} alt={alt} className={`${className ? className : ''} align-${align}`} />
+  }
+
+  return null;
+}

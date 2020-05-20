@@ -1,0 +1,18 @@
+.gatsby-image-wrapper {
+
+  &.align-left {
+    float: left;
+    margin-bottom: 24px;
+    margin-right: 24px;
+  }
+
+  &.align-right {
+    float: right;
+    margin-bottom: 24px;
+    margin-left: 24px;
+  }
+
+  &.is-style-circle-mask {
+    border-radius: 50%;
+  }
+}

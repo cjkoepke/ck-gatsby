@@ -1,21 +1,16 @@
 import React from "react"
 import Date from "../Date"
-import Button from "../Button"
 import { Link } from "gatsby"
 import { decodeText } from "../../helpers/formatting"
+import './styles.css'
 
 export default ({ title, author, date, excerpt, slug }) => {
   return (
-    <article className={`preview`}>
-      <h2>
-        <Link to={`/posts/${slug}`}>{decodeText(title)}</Link>
+    <article className={`excerpt`}>
+      <Date dateString={date} className={`excerpt__date`} />
+      <h2 className={`excerpt__title`}>
+        <Link className={`excerpt__link`} to={`/posts/${slug}`}>{decodeText(title)}</Link>
       </h2>
-      <Date dateString={date} />
-      <div
-        className="preview__excerpt"
-        dangerouslySetInnerHTML={{ __html: excerpt }}
-      ></div>
-      <Button url={slug} label={`Read More`} />
     </article>
   )
 }

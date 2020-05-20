@@ -8,11 +8,9 @@ export default ({ location, children }) => {
   return (
     <div className={`layout`}>
       <Meta />
-      <div className={`layout__meta`}>
-        <Header home={"/" === location.pathname} />
-        <Footer />
-      </div>
+      <Header path={location.pathname} />
       <main className={`layout__content`}>{children}</main>
+      <Footer />
     </div>
   )
 }

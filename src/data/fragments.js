@@ -37,10 +37,22 @@ export const Image = graphql`
     attributes {
       alt
       url
+      align
+      sizeSlug
+      className
       localFile {
         childImageSharp {
           fluid(maxWidth: 768) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+          large: fixed(width: 1024) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+          medium: fixed(width: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+          thumbnail: fixed(width: 150) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }

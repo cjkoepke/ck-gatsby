@@ -1,12 +1,13 @@
 import React from "react"
 import { MaybeLink } from "../../helpers/hoc"
+import { useGeneralSettings } from '../../data/hooks'
 import { graphql, useStaticQuery } from "gatsby"
 import "./styles.css"
 
 /**
  * The Menu component.
  */
-export default () => {
+export default ({ path }) => {
   const {
     wpgraphql: { primaryMenu },
   } = useStaticQuery(graphql`
@@ -22,13 +23,16 @@ export default () => {
     }
   `)
 
+  const { url: siteURL } = useGeneralSettings()
+
   return (
     primaryMenu && (
       <ul className={`navigation`}>
         {primaryMenu.nodes.map(item => {
           const { label, url } = item
+          const active = path === url.replace(siteURL, "");
           return (
-            <li key={url}>
+            <li key={url} className={active ? 'active' : ''}>
               <MaybeLink url={url} label={label} />
             </li>
           )
