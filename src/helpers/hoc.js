@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { useGeneralSettings } from "../data/hooks"
+import { isLocalAbsoluteUrl, isRelativeUrl, getRelativeUrl } from "./functions"
 
 /**
  * Localize urls against the blog domain,
@@ -10,18 +11,10 @@ import { useGeneralSettings } from "../data/hooks"
  * @param {string} label The menu item text.
  */
 export const MaybeLink = ({ url, label, ...rest }) => {
-  const { url: siteURL } = useGeneralSettings()
-  if (-1 !== url.indexOf(siteURL)) {
+  const { url: siteUrl } = useGeneralSettings()
+  if (isLocalAbsoluteUrl(url, siteUrl) || isRelativeUrl(url)) {
     return (
-      <Link to={url.replace(siteURL, "")} {...rest}>
-        {label}
-      </Link>
-    )
-  }
-
-  if (0 === url.indexOf("/")) {
-    return (
-      <Link to={url} {...rest}>
+      <Link to={getRelativeUrl(url, siteUrl)} {...rest}>
         {label}
       </Link>
     )

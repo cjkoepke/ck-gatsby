@@ -10,6 +10,8 @@
   --h5: 1.25em;
   --small: 0.8em;
   --transition: cubic-bezier(0.33, 1, 0.68, 1);
+  --font-family: 'ff-tisa-sans-web-pro', system-ui, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 @custom-media --small-viewport (min-width: 768px);
@@ -17,8 +19,7 @@
 body {
   color: var(--base);
   background-color: #fff;
-  font-family: system-ui, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-family);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.65;

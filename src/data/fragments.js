@@ -45,14 +45,14 @@ export const Image = graphql`
           fluid(maxWidth: 768) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
-          large: fixed(width: 1024) {
-            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          large: fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
-          medium: fixed(width: 300) {
-            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          medium: fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
-          thumbnail: fixed(width: 150) {
-            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          thumbnail: fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }

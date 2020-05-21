@@ -16,7 +16,7 @@ export default ({
   }
 
   if ( childImageSharp[sizeSlug] ) {
-    return <Image fixed={childImageSharp[sizeSlug]} alt={alt} className={`${className ? className : ''} align-${align}`} />
+    return <Image fluid={childImageSharp[sizeSlug]} alt={alt} className={`${className ? className : ''} align-${align}`} />
   }
 
   return null;

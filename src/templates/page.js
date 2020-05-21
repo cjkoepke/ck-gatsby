@@ -1,8 +1,8 @@
 import React from "react"
+import Parse from 'react-html-parser'
+import { graphql } from 'gatsby'
 import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
 import { useGeneralSettings } from "../data/hooks"
-import { decodeText } from "../helpers/formatting"
 import Image from "gatsby-image"
 import Layout from "../components/Layout"
 import PostBlocks from "../components/PostBlocks"
@@ -20,7 +20,7 @@ export default ({
   return (
     <Layout location={location}>
       <Helmet titleTemplate={`%s | ${generalSettings.title}`}>
-        <title>{decodeText(page.title)}</title>
+        <title>{Parse(page.title)}</title>
         {featuredImage && (
           <meta property="og:image" content={featuredImage.src} />
         )}
@@ -49,20 +49,11 @@ export const query = graphql`
         title
         slug
         author {
-          avatar {
-            url
-            localFile {
-              childImageSharp {
-                fixed(width: 80) {
-                  ...GatsbyImageSharpFixed_withWebp_tracedSVG
-                }
-              }
-            }
-          }
           description
           nickname
           firstName
           lastName
+          username
         }
         featuredImage {
           altText

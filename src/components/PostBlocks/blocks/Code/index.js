@@ -1,6 +1,6 @@
 import React from "react"
 import { LightAsync as Syntax } from "react-syntax-highlighter"
-import dark from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark"
+import light from "react-syntax-highlighter/dist/cjs/styles/hljs/tomorrow"
 import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript"
 import scss from "react-syntax-highlighter/dist/cjs/languages/hljs/scss"
 import bash from "react-syntax-highlighter/dist/cjs/languages/hljs/bash"
@@ -20,7 +20,7 @@ export default ({ nonNullContent: content, className: language }) => {
     <Syntax
       className={`code-block`}
       language={allowedLanguages.includes(language) ? language : "plaintext"}
-      style={dark}
+      style={light}
       showLineNumbers={true}
     >
       {content}

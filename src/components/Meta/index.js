@@ -1,12 +1,12 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import Parse from 'react-html-parser'
 import { useGeneralSettings } from "../../data/hooks"
-import { decodeText } from "../../helpers/formatting"
 
 export default () => {
   const { title, description } = useGeneralSettings()
   return (
-    <Helmet defaultTitle={`${decodeText(title)} | ${description}`}>
+    <Helmet defaultTitle={`${Parse(title)} | ${description}`}>
       <meta name="description" content={description} />
       <link
         rel="apple-touch-icon"

@@ -1,7 +1,6 @@
 import React from "react"
 import Image from "gatsby-image"
 import Date from "../Date"
-import Avatar from '../Avatar'
 import "./styles.css"
 
 export default ({ title, date, featuredImage }) => {

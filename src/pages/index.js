@@ -26,7 +26,7 @@ export default ({ data, location }) => {
 export const query = graphql`
   query {
     wpgraphql {
-      pageBy(uri: "hello") {
+      page(id: "32", idType: DATABASE_ID) {
         blocks {
           ...AllBlocks
         }
