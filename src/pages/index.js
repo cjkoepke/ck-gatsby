@@ -7,8 +7,9 @@ import PostBlocks from "../components/PostBlocks"
 
 export default ({ data, location }) => {
   const generalSettings = useGeneralSettings()
-  const page = data?.wpgraphql?.pageBy
+  const page = data?.wpgraphql?.page
   const featuredImage = page?.featuredImage?.localFile?.childImageSharp?.fixed
+  console.log(page)
   return (
     <Layout location={location}>
       <Helmet titleTemplate={`%s | ${generalSettings.title}`}>
