@@ -28,7 +28,7 @@ module.exports = {
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: `https://calvinkoepke.com/graphql`,
+        url: process.env.WORDPRESS_SOURCE || `https://blog.calvinkoepke.com/graphql`,
       },
     },
     {
