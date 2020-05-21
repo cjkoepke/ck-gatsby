@@ -9,5 +9,9 @@ export const useGeneralSettings = () => {
       }
     `
   )
-  return wpgraphql.generalSettings
+
+  return {
+   ...wpgraphql.generalSettings,
+    url: 'https://calvinkoepke.com'
+  }
 }

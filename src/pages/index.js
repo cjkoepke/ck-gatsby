@@ -1,10 +1,8 @@
 import React from "react"
-import { useGeneralSettings } from '../data/hooks'
 import Layout from "../components/Layout"
 import Paragraph from '../components/PostBlocks/blocks/Paragraph'
 
 export default ({ data, location }) => {
-  const generalSettings = useGeneralSettings()
   return (
     <Layout location={location}>
       <article className="post">

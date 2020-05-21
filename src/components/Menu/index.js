@@ -25,6 +25,8 @@ export default ({ path }) => {
 
   const { url: siteURL } = useGeneralSettings()
 
+  console.log( primaryMenu.nodes );
+
   return (
     primaryMenu && (
       <ul className={`navigation`}>
