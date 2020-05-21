@@ -11,7 +11,6 @@ export default ({
     childImageSharp,
   },
 }) => {
-  console.log(sizeSlug, childImageSharp[sizeSlug])
   if ( 'full' === sizeSlug ) {
     return <Image fluid={childImageSharp?.fluid} alt={alt} className={`${className ? className : ''} align-${align}`} />
   }
