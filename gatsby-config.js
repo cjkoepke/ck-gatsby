@@ -31,14 +31,14 @@ module.exports = {
         url: process.env.WORDPRESS_SOURCE || `https://blog.calvinkoepke.com/graphql`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        typekit: {
-          id: 'nxj2ics'
-        }
-      }
-    }
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
+    //   options: {
+    //     typekit: {
+    //       id: 'nxj2ics'
+    //     }
+    //   }
+    // }
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {
