@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import { useGeneralSettings } from "../data/hooks"
-import { isLocalAbsoluteUrl, isRelativeUrl, getRelativeUrl } from "./functions"
+import { useGeneralSettings } from "../../data/hooks"
+import { isLocalAbsoluteUrl, isRelativeUrl, getRelativeUrl } from "../../helpers/functions"
 
 /**
  * Localize urls against the blog domain,
@@ -12,6 +12,7 @@ import { isLocalAbsoluteUrl, isRelativeUrl, getRelativeUrl } from "./functions"
  */
 export const MaybeLink = ({ url, label, ...rest }) => {
   const { url: siteUrl } = useGeneralSettings()
+
   if (isLocalAbsoluteUrl(url, siteUrl) || isRelativeUrl(url)) {
     return (
       <Link to={getRelativeUrl(url, siteUrl)} {...rest}>

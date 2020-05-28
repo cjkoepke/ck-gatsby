@@ -1,5 +1,5 @@
 import React from "react"
-import { MaybeLink } from "../../helpers/hoc"
+import { MaybeLink } from "../MaybeLink"
 import { useGeneralSettings } from '../../data/hooks'
 import { graphql, useStaticQuery } from "gatsby"
 import "./styles.css"
@@ -24,8 +24,6 @@ export default ({ path }) => {
   `)
 
   const { url: siteURL } = useGeneralSettings()
-
-  console.log( primaryMenu.nodes );
 
   return (
     primaryMenu && (

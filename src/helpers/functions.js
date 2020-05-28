@@ -23,8 +23,6 @@ export const normalizeUrlPrefix = url => url.replace(/(^\w+:|^)\/\//, "")
  * Get's relative URL from an absolute path.
  */
 export const getRelativeUrl = (url, siteUrl) => {
-  const normalizedUrl = url.replace(/(^\w+:|^)\/\//, "")
-  const normalizedSiteUrl = siteUrl.replace(/(^\w+:|^)\/\//, "")
-
-  return normalizedUrl.replace(normalizedSiteUrl, "")
+  const newURL = new URL(url, siteUrl);
+  return newURL.pathname || url;
 }

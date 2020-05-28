@@ -1,6 +1,6 @@
 import React from "react"
 import Parse from "react-html-parser"
-import { MaybeLink } from "../../../../helpers/hoc"
+import { MaybeLink } from "../../../MaybeLink"
 import "./styles.css"
 
 export default function Paragraph({ content, dropCap, fontSize, align }) {
