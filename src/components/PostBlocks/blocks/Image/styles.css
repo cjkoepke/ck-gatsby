@@ -1,4 +1,5 @@
 .gatsby-image-wrapper {
+  margin: 20px 0;
 
   &.align-left {
     float: left;
