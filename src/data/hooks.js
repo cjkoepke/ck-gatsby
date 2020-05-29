@@ -1,8 +1,13 @@
 import { useStaticQuery, graphql } from "gatsby"
 export const useGeneralSettings = () => {
-  const { wpgraphql } = useStaticQuery(
+  const { wpgraphql, site } = useStaticQuery(
     graphql`
       query {
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
         wpgraphql {
           ...GeneralSettings
         }
@@ -12,6 +17,6 @@ export const useGeneralSettings = () => {
 
   return {
    ...wpgraphql.generalSettings,
-    url: 'https://calvinkoepke.com'
+    url: site.siteMetadata.siteUrl
   }
 }
