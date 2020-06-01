@@ -24,5 +24,5 @@ export const normalizeUrlPrefix = url => url.replace(/(^\w+:|^)\/\//, "")
  */
 export const getRelativeUrl = (url, siteUrl) => {
   const newURL = new URL(url, siteUrl);
-  return newURL.pathname || url;
+  return newURL.pathname + newURL.hash || url;
 }

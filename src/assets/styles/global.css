@@ -28,15 +28,19 @@ body {
 }
 
 a {
-  border-bottom: 2px solid var(--gray-1);
+  background-image: linear-gradient(to right, var(--gray-1) 100%, var(--gray-1) 0);
+  background-position: 0 calc(1em + 3px);
+  background-repeat: repeat-x;
+  background-size: 1px 4px;
   color: var(--base);
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.25s var(--transition);
+  transition: color 0.25s var(--transition);
+
 
   &:focus,
   &:hover {
-    border-color: var(--link);
+    color: var(--link);
   }
 }
 

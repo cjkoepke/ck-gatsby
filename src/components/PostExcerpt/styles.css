@@ -10,12 +10,6 @@
 .excerpt__title {
   font-size: var(--h6);
   margin: 0;
-
-  @media only screen and (min-width: 768px) {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
 }
 
 
@@ -26,24 +20,15 @@
   margin: 0;
 
   @media only screen and (min-width: 768px) {
+    float: right;
     margin-left: 10px;
   }
 }
 
 .excerpt__link {
-  display: inline-block;
   margin: 10px 0;
 
   @media only screen and (min-width: 768px) {
     margin: 0;
   }
-}
-
-.excerpt__link::before {
-  content: '';
-  left: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
 }

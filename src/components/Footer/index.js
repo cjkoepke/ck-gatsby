@@ -6,7 +6,7 @@ export default () => {
   return (
     <footer className={`footer`}>
       <div className={`footer__wrap`}>
-        <p>&copy; {date.getFullYear()} - ALl Rights Reserved</p>
+        <p>&copy; {date.getFullYear()} - All Rights Reserved - <a href="https://twitter.com/cjkoepke" target="_blank">@cjkoepke</a></p>
       </div>
     </footer>
   )
