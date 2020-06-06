@@ -18,6 +18,13 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
+      resolve: 'gatsby-plugin-fathom',
+      options: {
+        trackingUrl: 'stats.calvinkoepke.com',
+        siteId: 'PDCYX'
+      }
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
