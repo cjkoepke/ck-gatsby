@@ -1,18 +1,15 @@
-import React, { Fragment } from 'react'
-import { Link } from 'gatsby'
-import SEO from '../components/seo'
-import Section from '../components/Section'
-import Hero from '../components/Hero'
+import React from "react"
+import Layout from "../components/Layout"
+import Paragraph from '../components/PostBlocks/blocks/Paragraph'
 
-const NotFoundPage = () => (
-  <Fragment>
-    <SEO title="404: Not found" />
-    <Section>
-	    <Hero title={`Danget, I actuall broke something.`}>
-		    <p>...or you did. Doesn't matter, though! <Link to={`/`}>Just start over</Link>.</p>
-	    </Hero>
-    </Section>
-  </Fragment>
-)
+export default ({ data, location }) => {
 
-export default NotFoundPage
+  return (
+    <Layout location={location}>
+      <article className="post">
+        <h2>Oops...</h2>
+        <Paragraph fontSize={`large`} content={`Well, that's not right. <a href="/">Try again</a>.`} />
+      </article>
+    </Layout>
+  )
+}

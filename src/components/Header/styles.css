@@ -1,0 +1,26 @@
+.header {
+  padding: 20px 0;
+}
+
+.header__title {
+  font-size: var(--h4);
+  margin: 0;
+
+  &,
+  & a {
+    color: var(--base);
+    border: 0;
+    font-weight: 900;
+  }
+
+  & a {
+    background-image: none;
+    text-decoration: none;
+  }
+}
+
+.header__desc {
+  font-size: var(--small);
+  font-weight: 400;
+  margin-top: 0;
+}

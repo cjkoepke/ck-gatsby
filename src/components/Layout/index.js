@@ -1,37 +1,16 @@
-import React, { Fragment, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import Header from '../Header'
-import ThemeSwitcher from '../ThemeSwitcher'
-import '../../styles/normalize.css'
-import '../../styles/scss/global.scss'
+import React from "react"
+import Meta from "../Meta"
+import Footer from "../Footer"
+import Header from "../Header"
+import "./styles.css"
 
-const Layout = ( { children, location } ) => {
-	useEffect(() => {
-		let polyFillLoaded = false
-		if ( 'undefined' === typeof window.IntersectionObserver && ! polyFillLoaded ) {
-			import('intersection-observer').then(() => {
-				polyFillLoaded = true
-				console.log( 'Intersection Observer Polyfill successfully loaded.' )
-			} )
-		}
-	})
-
-	return (
-		<Fragment>
-			<ThemeSwitcher/>
-			<Header path={location.pathname}/>
-			<main className={`main`}>
-				{children}
-			</main>
-			<footer>
-				© {new Date().getFullYear()}, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
-			</footer>
-		</Fragment>
-	)
+export default ({ location, children }) => {
+  return (
+    <div className={`layout`}>
+      <Meta />
+      <Header path={location.pathname} />
+      <main className={`layout__content`}>{children}</main>
+      <Footer />
+    </div>
+  )
 }
-
-Layout.propTypes = {
-	children: PropTypes.node.isRequired,
-}
-
-export default Layout

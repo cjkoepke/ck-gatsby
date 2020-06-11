@@ -1,0 +1,101 @@
+:root {
+  --base: #0a1538;
+  --link: #2457f2;
+  --gray-1: #dce0ef;
+  --gray-2: #f4f6f9;
+  --h1: 3.052em;
+  --h2: 2.441em;
+  --h3: 1.953em;
+  --h4: 1.563em;
+  --h5: 1.25em;
+  --small: 0.8em;
+  --transition: cubic-bezier(0.33, 1, 0.68, 1);
+  --font-family: neue-haas-unica, system-ui, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@custom-media --small-viewport (min-width: 768px);
+
+body {
+  color: var(--base);
+  background-color: #fff;
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  background-image: linear-gradient(to right, var(--gray-1) 100%, var(--gray-1) 0);
+  background-position: 0 calc(1em + 3px);
+  background-repeat: repeat-x;
+  background-size: 1px 4px;
+  color: var(--base);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.25s var(--transition);
+
+
+  &:focus,
+  &:hover {
+    color: var(--link);
+  }
+}
+
+ul,
+ol {
+  margin: 3rem 0;
+}
+
+p {
+  margin-bottom: 1.15rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2.75rem 0 1.05rem;
+  font-weight: 700;
+  line-height: 1.15;
+
+  & a {
+    border-width: 4px;
+  }
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+small,
+.text_small {
+  font-size: 0.8em;
+}
+
+img {
+  height: auto;
+  border-radius: 8px;
+  width: 100%;
+}

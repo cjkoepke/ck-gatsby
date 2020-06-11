@@ -1,0 +1,23 @@
+.post-meta {
+  margin-bottom: 40px;
+}
+
+.post-meta__info {
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--small);
+
+  & .avatar {
+    margin-right: 10px;
+
+    &::after {
+      content: "/";
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+}
+
+.post-meta__title {
+  font-size: var(--h2);
+}

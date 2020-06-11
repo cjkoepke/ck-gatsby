@@ -1,0 +1,5 @@
+.code-block {
+  background: var(--gray-2) !important;
+  border-radius: 8px;
+  font-size: var(--small);
+}
