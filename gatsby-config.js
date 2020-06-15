@@ -20,7 +20,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-fathom',
       options: {
-        siteId: 'YSQQKFED'
+        trackingUrl: 'stats.calvinkoepke.com',
+        siteId: 'SEQYV'
       }
     },
     {
