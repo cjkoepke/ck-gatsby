@@ -115,7 +115,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#2457f2`,
         display: `minimal-ui`,
-        icon: `src/assets/images/logo-mark-transparent.png`,
+        icon: `src/static/logo-mark-transparent.png`,
       },
     },
   ],
