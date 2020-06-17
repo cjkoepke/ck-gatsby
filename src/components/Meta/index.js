@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import Parse from 'react-html-parser'
 import { useGeneralSettings } from "../../data/hooks"
 import favicon from '../../assets/images/logo-mark-transparent.png'
+import image from '../../assets/images/calvin.jpeg'
 
 export default ( location ) => {
   const { title, description } = useGeneralSettings()
@@ -35,7 +36,7 @@ export default ( location ) => {
 
       <meta property="og:title" content={Parse(title)} />
       <meta property="og:description" content={Parse(description)} />
-      <meta property="og:image" content={`${site?.siteMetadata?.siteUrl}/assets/images/calvin.jpeg`} />
+      <meta property="og:image" content={`${site?.siteMetadata?.siteUrl}${image}`} />
       <meta property="og:url" content={location.href} />
       <meta name="twitter:card" content="summary" />
     </Helmet>
