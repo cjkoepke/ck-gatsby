@@ -1,5 +1,5 @@
 import React from "react"
-import { MaybeLink } from "../../helpers/hoc"
+import MaybeLink from "../MaybeLink"
 import "./styles.css"
 
 export default ({ label, url }) => (

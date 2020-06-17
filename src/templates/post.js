@@ -14,14 +14,16 @@ export default ({
   },
 }) => {
   const generalSettings = useGeneralSettings()
+  const excerpt = post.excerpt.replace(/(<([^>]+)>)/ig, '');
 
   return (
     <Layout location={location}>
       <Helmet titleTemplate={`%s | ${generalSettings.title}`}>
         <title>{Parse(post.title)}</title>
-        {post?.featuredImage && (
-          <meta property="og:image" content={post?.featuredImage?.src} />
-        )}
+        <meta name="description" content={excerpt} />
+        <meta property="og:title" content={Parse(post.title)} />
+        <meta property="og:description" content={excerpt} />
+        <meta property="og:url" content={location.href} />
       </Helmet>
       <article className="post">
         <PostHeader {...post} />

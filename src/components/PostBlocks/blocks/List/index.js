@@ -1,12 +1,19 @@
 import React from "react"
+import Parse from 'react-html-parser'
+import { transformLinks } from '../../../../helpers/functions'
+
 export default ({ values, ordered }) => {
   if (!values) {
     return null
   }
 
   return ordered ? (
-    <ol dangerouslySetInnerHTML={{ __html: values }} />
+    <ol>{Parse(values, {
+        transform: transformLinks
+      })}</ol>
   ) : (
-    <ul dangerouslySetInnerHTML={{ __html: values }} />
+    <ul>{Parse(values, {
+        transform: transformLinks
+      })}</ul>
   )
 }
