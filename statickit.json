@@ -1,0 +1,13 @@
+{
+  "forms": {
+    "optInForm": {
+      "name": "Inline Form",
+      "actions": [{
+        "app": "convertkit",
+        "apiSecret": "@ck-secret-api",
+        "type": "applyTags",
+        "tags": ["Footer"]
+      }]
+    }
+  }
+}
