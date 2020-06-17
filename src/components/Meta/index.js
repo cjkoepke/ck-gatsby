@@ -10,31 +10,16 @@ export default ( location ) => {
       <meta name="description" content={description} />
       <link
         rel="apple-touch-icon"
-        sizes="180x180"
+        sizes="616x616"
         href="/logo-mark-transparent.png"
       />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/logo-mark-transparent.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/logo-mark-transparent.png"
-      />
-      <link rel="manifest" href="/favicon/site.webmanifest" />
+      <link rel="manifest" href="/manifest.webmanifest" />
       <link
         rel="mask-icon"
         href="/logo-mark-transparent.png"
         color="#000000"
       />
       <link rel="shortcut icon" href="/logo-mark-transparent.png" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/rss/posts.xml" />
 
       <meta property="og:title" content={Parse(title)} />
