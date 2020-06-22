@@ -17,14 +17,16 @@ export default ({
 }) => {
   const generalSettings = useGeneralSettings()
   const featuredImage = page?.featuredImage?.localFile?.childImageSharp?.fluid
+  const excerpt = page?.content.replace(/(<([^>]+)>)/ig, '').slice(0, 150).trim();
 
   return (
     <Layout location={location}>
       <Helmet titleTemplate={`%s | ${generalSettings.title}`}>
         <title>{Parse(page.title)}</title>
-        {featuredImage && (
-          <meta property="og:image" content={featuredImage.src} />
-        )}
+        <meta name="description" content={`${excerpt}...`} />
+        <meta property="og:title" content={Parse(page.title)} />
+        <meta property="og:description" content={`${excerpt}...`} />
+        <meta property="og:url" content={location.href} />
       </Helmet>
       <article className="post">
         <PostHeader {...page} />
@@ -49,6 +51,7 @@ export const query = graphql`
         blocks {
           ...AllBlocks
         }
+        content
         date
         title
         slug

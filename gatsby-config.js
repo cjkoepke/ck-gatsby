@@ -1,15 +1,10 @@
-/**
- * NOTE: Only set this to zero if you're
- * grabbing data from a local WP installation.
- */
-NODE_TLS_REJECT_UNAUTHORIZED = "0"
-
 module.exports = {
+  assetPrefix: `https://calvinkoepke.com`,
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@cjkoepke`,
-    siteUrl: `https://calvinkoepke.com`
+    siteUrl: `https://calvinkoepke.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -105,18 +100,18 @@ module.exports = {
           id: 'nxj2ics'
         }
       }
-    }
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-    //   },
-    // },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `calvin-koepke`,
+        short_name: `ck`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#2457f2`,
+        display: `minimal-ui`,
+        icon: `src/assets/images/logo-mark-transparent.png`,
+      },
+    },
   ],
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import { MaybeLink } from "../MaybeLink"
+import MaybeLink from "../MaybeLink"
 import { graphql, useStaticQuery } from "gatsby"
 import "./styles.css"
 
