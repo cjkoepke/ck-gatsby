@@ -7,6 +7,7 @@ import Image from "gatsby-image"
 import Layout from "../components/Layout"
 import PostBlocks from "../components/PostBlocks"
 import PostHeader from "../components/PostHeader"
+import Form from '../components/Form'
 
 export default ({
   location,
@@ -35,6 +36,9 @@ export default ({
           </div>
         )}
         <PostBlocks {...page} />
+        {'Contact' === page.title
+          ? <Form id="contactForm" />
+          : null}
       </article>
     </Layout>
   )
