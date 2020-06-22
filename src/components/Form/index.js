@@ -1,35 +1,52 @@
 import React from 'react'
 import { useForm, ValidationError } from '@statickit/react';
+import Button from '../Button'
 import './styles.css'
 
-export default () => {
-  const [state, handleSubmit] = useForm('1447765');
+const FormGroup = ({ slug, name, type = 'text', state }) => (
+  <div className={`form__group`}>
+    <label htmlFor={slug} className="form__label">
+      {name}
+    </label>
+    {'textarea' === type
+      ? (
+        <textarea
+          id={slug}
+          name={slug}
+          className="form__input"
+          rows="12"
+        ></textarea>
+      ) : (
+        <input
+          id={slug}
+          type={type}
+          name={slug}
+          className="form__input"
+        />
+      )}
+    <ValidationError
+      className={`form__error`}
+      prefix={name}
+      field={slug}
+      errors={state.errors}
+    />
+  </div>
+)
 
-  console.log( state )
+export default ({ id = 'contactForm' }) => {
+  const [state, handleSubmit] = useForm(id);
+  console.log(state)
 
   if ( state.succeeded ) {
-    return <p>Success!</p>
+    return <p>Success! I will be in touch with you as soon as possible.</p>
   }
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <label htmlFor="email" className="form__label">
-        Email Address
-      </label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        className="form__input"
-      />
-      <ValidationError
-        prefix="Email"
-        field="email"
-        errors={state.errors}
-      />
-      <button type="submit" disabled={state.submitting} className="form__btn">
-        Sign Up
-      </button>
+      <FormGroup slug="name" name="Full Name" state={state} />
+      <FormGroup slug="email" name="Email" type="email" state={state} />
+      <FormGroup slug="message" name="Message" type="textarea" state={state} />
+      <Button type="submit" disabled={state.submitting} label="Submit" />
     </form>
   )
 }

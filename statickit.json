@@ -1,13 +1,30 @@
 {
   "forms": {
-    "optInForm": {
-      "name": "Inline Form",
-      "actions": [{
-        "app": "convertkit",
-        "apiSecret": "@ck-secret-api",
-        "type": "applyTags",
-        "tags": ["Footer"]
-      }]
+    "contactForm": {
+      "name": "Contact Form",
+      "actions": [
+        {
+          "type": "email",
+          "to": "hello@calvinkoepke.com"
+        }
+      ],
+      "fields": {
+        "name": {
+          "type": "text",
+          "prettyName": "Full Name",
+          "required": true
+        },
+        "email": {
+          "type": "email",
+          "prettyName": "Email Address",
+          "required": true
+        },
+        "message": {
+          "type": "text",
+          "prettyName": "Message",
+          "required": true
+        }
+      }
     }
   }
 }

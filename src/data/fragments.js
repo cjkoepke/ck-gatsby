@@ -113,8 +113,8 @@ export const AllBlocks = graphql`
     ...Heading
     ...Button
     ...Image
-    ...Code
     ...List
     ...Blockquote
+    ...Code
   }
 `
